@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ food.title }} 상세 정보</title>
+</head>
+<body>
+<h1>{{ food.title }}</h1>
+<p>위치: {{ food.location }}</p>
+<p>전화번호: {{ food.call }}</p>
+<p>음식 종류: {{ food.get_cuisine_display }}</p>
+<img src="{{ food.photo.url }}" alt="{{ food.name }}">
+<p>별점: {{ food.rating }}</p>
+<p>주차 가능: {{ food.parking_available|yesno:"Yes,No" }}</p>
+<p>예약 가능: {{ food.reservation_available|yesno:"Yes,No" }}</p>
+<a href="{% url 'foods:food_update' pk=food.pk %}">수정</a>
+<a href="{% url 'foods:food_delete' pk=food.pk %}">삭제</a>
+<a href="{% url 'foods:food_list' %}">목록으로 돌아가기</a>
+</body>
+</html>

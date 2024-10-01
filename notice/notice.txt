@@ -1,0 +1,84 @@
+[1] 프로젝트 및 앱 생성
+1-1) 프로젝트 생성
+django-admin startproject myproject .
+1-2) 앱 생성
+python manage.py startapp accounts
+1-3) myproject/settings.py 추가
+INSTALLED_APPS = [
+    ...
+    'accounts',
+]
+
+[2] 모델 및 User 모델 확장 _ Django의 기본 User 모델을 사용
+2-1) accounts/models.py 작업
+2-2)
+
+[3] URLConf 설정
+3-1) accounts/urls.py 생성
+3-2) 경로 정의
+
+[4] 회원가입 View 및 Form 작성
+4-1) accounts/forms.py 생성
+4-2) UserCreationForm 확장한 회원가입 폼 작업
+4-3) accounts/views.py 회원가입 로직 구현
+
+[5] 템플릿 생성
+5-1) accounts/templates/login.html , /signup.html 생성
+5-2) HTML 작업
+
+[6] 추가 작업
+6-1 ) myproject/urls.py
+
+=========================
+중간 점검
+python manage.py makemigrations
+    python manage.py makemigrations accounts
+python manage.py migrate
+
+python manage.py createsuperuser
+    - Username : kwonchaeyeong
+    - Email address: a@a.com
+    - Password: 1234
+
+python manage.py runserver
+===========================================================================
+
+[7] 나머지 앱 생성
+7-1) python manage.py startapp foods
+7-2) python manage.py startapp maps
+7-3) python manage.py startapp analytics
+7-4) 추가
+INSTALLED_APPS = [
+    ...
+    'foods',
+    'maps',
+    'analytics',
+]
+
+[8] foods 작업
+
+[9] 데이터베이스 마이그레이션
+python manage.py makemigrations foods
+python manage.py migrate
+---------------------------------------------------------------------------
+ERRORS:
+foods.Restaurant.photo: (fields.E210) Cannot use ImageField because Pillow is not installed.
+        HINT: Get Pillow at https://pypi.org/project/Pillow/ or run command "python -m pip install Pillow".
+
+=====> foods.Restaurant.photo 필드에서 ImageField를 사용하고 있지만, Pillow 라이브러리가 설치되어 있지 않기 때문에 발생한 것입니다.
+ImageField는 이미지 파일을 다룰 때 필요한 필드 타입으로, 이를 사용하기 위해선 Pillow 라이브러리가 필요합니다.
+* Pillow 라이브러리란?
+Pillow는 파이썬에서 이미지 처리를 수행하는 데 널리 사용되는 라이브러리입니다.
+Django의 ImageField는 내부적으로 Pillow를 사용하여 이미지 파일의 업로드와 처리를 수행합니다.
+---------------------------------------------------------------------------
+python manage.py runserver
+
+
+===========================================================================
+
+[10]
+
+데이터베이스 마이그레이션
+python manage.py makemigrations analytics
+python manage.py migrate
+
