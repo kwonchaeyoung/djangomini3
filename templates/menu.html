@@ -1,0 +1,14 @@
+<div class="nav-bar">
+    <div class="nav-bar-left">
+        <a href="{% url 'main_page' %}">맛집추천</a> <!-- 메인페이지 이동 -->
+    </div>
+    <div class="nav-bar-right">
+        {% if user.is_authenticated %}
+            <a href="{% url 'foods:food_create' %}">게시글 작성하기</a>
+            <a href="{% url 'user_stats' %}">내정보</a>
+            <a href="{% url 'logout' %}">로그아웃</a>
+        {% else %}
+            <a href="{% url 'login' %}">로그인</a>
+        {% endif %}
+    </div>
+</div>

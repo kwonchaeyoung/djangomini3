@@ -1,0 +1,25 @@
+/* css/menu.css */
+
+/* 네비게이션 바 설정 */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.nav-bar-left a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.nav-bar-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.nav-bar a:hover {
+    color: blue;
+}

@@ -1,30 +1,30 @@
-<canvas id="myChart"></canvas>
-<script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar', // 차트 타입
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    ...
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    ...
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내정보</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body>
+    {% include 'menu.html' %}
+
+    <h1>{{ user.username }}님의 게시글</h1>
+
+    <h2>게시글 목록</h2>
+    <ul>
+        {% for post in posts %}
+        <li>{{ post.title }} - {{ post.created_at }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>댓글 목록</h2>
+    <ul>
+        {% for comment in comments %}
+        <li>{{ comment.content }} - {{ comment.created_at }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

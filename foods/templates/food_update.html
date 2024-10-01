@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 수정하기</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 </head>
 <body>
+    {% include 'menu.html' %}
     <h1>게시글 수정하기</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}

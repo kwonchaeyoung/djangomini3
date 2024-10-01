@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 삭제하기</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 </head>
 <body>
     <h1>게시글 삭제하기</h1>
     <p>정말로 삭제하시겠습니까?</p>
-    <form method="post">
+    <form method="post" id="deleteForm" onsubmit="return confirm('정말로 삭제하시겠습니까?')">
         {% csrf_token %}
-        <button type="submit">삭제</button>
+        <button type="submit" id="deleteButton">삭제</button>
     </form>
 </body>
 </html>
