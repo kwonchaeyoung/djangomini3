@@ -16,6 +16,47 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">저장</button>
+
+        <!-- Form 필드에 숨겨진 필드로 위치 데이터를 추가 -->
+        <input type="hidden" id="id_location_lat" name="location_lat">
+        <input type="hidden" id="id_location_lng" name="location_lng">
+
     </form>
+
+    <!-- 위치 정보 수집 스크립트 -->
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(savePosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function savePosition(position) {
+            document.getElementById('id_location_lat').value = position.coords.latitude;
+            document.getElementById('id_location_lng').value = position.coords.longitude;
+        }
+
+        window.onload = getLocation;
+    </script>
+
+    <!-- 사용자 위치 지도 표시 -->
+    <div id="map" style="height: 400px;"></div>
+    <script>
+        function initMap() {
+            const storeLocation = { lat: {{ food.location_lat }}, lng: {{ food.location_lng }} };
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: storeLocation
+            });
+            new google.maps.Marker({
+                position: storeLocation,
+                map: map
+            });
+        }
+    </script>
+
+
 </body>
 </html>

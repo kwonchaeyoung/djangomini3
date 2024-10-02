@@ -1,6 +1,11 @@
+{% load static %}  <!-- static 태그 로드 -->
+
 <div class="nav-bar">
     <div class="nav-bar-left">
-        <a href="{% url 'main_page' %}">맛집추천</a> <!-- 메인페이지 이동 -->
+        <a href="{% url 'main_page' %}">
+            <img src="{% static 'images/맛집추천로고.png' %}" alt="맛집추천 로고" style="height: 40px; vertical-align: middle;">
+            맛집추천
+        </a> <!-- 메인페이지 이동 -->
     </div>
     <div class="nav-bar-right">
         {% if user.is_authenticated %}
@@ -10,5 +15,6 @@
         {% else %}
             <a href="{% url 'login' %}">로그인</a>
         {% endif %}
+        <a href="{% url 'site_dashboard' %}">대시보드</a>  <!-- 대시보드 버튼 추가 -->
     </div>
 </div>

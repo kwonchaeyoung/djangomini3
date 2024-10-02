@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
-from analytics.views import UserStatsView
+from analytics.views import UserStatsView, SiteDashboardView
 from foods.views import FoodListView
 
 from django.conf import settings
@@ -34,6 +34,7 @@ urlpatterns = [
     path('foods/', include('foods.urls')),
     path('user-stats/', UserStatsView.as_view(), name='user_stats'),
     path('analytics/', include('analytics.urls')),
+    path('analytics/site-dashboard/', SiteDashboardView.as_view(), name='site_dashboard'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

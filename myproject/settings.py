@@ -132,5 +132,11 @@ LOGOUT_REDIRECT_URL = 'main_page' # 사용자 로그아웃 시 메인 페이지�
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "css")] # 정적 파일 경로 설정
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # static 디렉토리 경로 추가
+    # os.path.join(BASE_DIR, "css"),     # 기존 css 경로 유지
+]
 
+
+# settings.py
+GOOGLE_MAPS_API_KEY = 'your-google-maps-api-key' # Google Maps API 연동 설정 : Google Cloud Platform에 가입하고 Google Maps API 키를 발급

@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    margin-bottom: 30px; /* 하단에 여백 추가 */
 }
 
 .nav-bar-left a {

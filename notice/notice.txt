@@ -91,3 +91,9 @@ Chart.js가 제대로 로드되지 않거나, CSS 파일이 올바르게 로드�
 python manage.py collectstatic
 >>> django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
 
+=============================================================================================================================
+[12] Google Maps API 연동 설정
+Google Cloud Platform에 가입하고 Google Maps API 키를 발급
+-> 프로젝트 내에 settings.py 파일에 Google Maps API 키를 추가합니다.
+
+

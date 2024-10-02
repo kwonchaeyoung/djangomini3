@@ -1,22 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
 </head>
 <body>
-<h2>Login</h2>
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <label for="username">Email:</label>
-    <input type="text" name="username" id="username" required>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required>
-    <button type="submit">Login</button>
-</form>
-{% if form.errors %}
-<p>Your username and/or password didn't match. Please try again.</p>
-{% endif %}
-<a href="{% url 'signup' %}">Don't have an account? Sign up</a>
+    <!-- 상단 네비게이션 바 -->
+    {% include 'menu.html' %}
+
+    <!-- 로그인 컨테이너 -->
+    <div class="login-container">
+        <!-- 프로필 이미지 대신 '맛집추천로고' -->
+        <div class="login-logo">
+            <img src="{% static 'images/맛집추천로고.png' %}" alt="맛집추천 로고">
+        </div>
+
+        <!-- 로그인 폼 -->
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="login-form">
+                <label for="username">이메일</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="login-form">
+                <label for="password">비밀번호</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+
+            <div class="login-form">
+                <button type="submit" class="login-button">로그인</button>
+            </div>
+        </form>
+
+        <!-- 로그인 실패 시 에러 메시지 -->
+        {% if form.errors %}
+        <p class="error-message">이메일 또는 비밀번호가 일치하지 않습니다. 다시 시도하세요.</p>
+        {% endif %}
+
+        <!-- 회원가입 링크 -->
+        <div class="signup-link">
+            <a href="{% url 'signup' %}">회원가입</a>
+        </div>
+    </div>
 </body>
 </html>

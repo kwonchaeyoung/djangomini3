@@ -1,0 +1,81 @@
+        /* 로그인 박스와 유사한 스타일 */
+        .signup-container {
+            max-width: 400px;
+            margin: 70px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: white;
+        }
+
+        .signup-container img {
+            width: 100px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+
+        .signup-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .signup-container input[type="text"],
+        .signup-container input[type="email"],
+        .signup-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .signup-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .signup-container button:hover {
+            background-color: #574bdb;
+        }
+
+        .signup-container a {
+            display: block;
+            margin-top: 15px;
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        .signup-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* 입력 에러 시 빨간 경고문 */
+.errorlist {
+    color: red;
+    font-size: 14px;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+::placeholder {
+    color: #888; /* 흐릿한 회색 */
+    opacity: 1; /* 파이어폭스에서는 필요 */
+}
+
+
+.signup-container .error {
+    color: red; /* 경고 문구를 빨간색으로 설정 */
+    font-size: 14px;
+    margin-top: 5px;
+    line-height: 1.5; /* 행간 간격 조정 */
+    white-space: pre-line; /* 줄바꿈 허용 */
+}
+
+
+

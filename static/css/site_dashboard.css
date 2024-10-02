@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.stats-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.total-posts, .total-users {
+    width: 48%;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-section {
+    margin-bottom: 40px;
+}
+
+#map-dashboard {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 40px;
+    border: 1px solid #ddd;
+}
+
+.store-distribution {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.store-list p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+}
